@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Basic Error</title>
+  </head>
+  <body>
+
+  </body>
+
+  <script>
+      class DevcampError extends Error {
+          constructor(msg = 'An error occured', ...parans) {
+              super(...parans);
+
+              this.msg =msg;
+          }
+      }
+
+
+    function siteComponent(func) {
+      return func();
+    }
+    
+    
+    try {
+      console.log(siteComponent('oops'));
+    } catch(e) {
+      throw new Devcamp('DevcampError', e);
+    
+    
+    
+    }widget = () => {
+      return '<div>Hi there</div>';
+    
+    }
+
+   
+  </script>
+</html>

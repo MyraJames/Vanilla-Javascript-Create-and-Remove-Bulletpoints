@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+
+  <style>
+    .todoItem:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="todos">
+    <h2>Pending Todos</h2>
+    <ul>
+      <li class="todoItem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, animi.</li>
+      <li class="todoItem">Numquam dolor quo alias nam vel voluptates magni magnam quisquam.</li>
+      <li class="todoItem">Recusandae eaque quisquam facere ab reprehenderit cupiditate magni placeat quis?</li>
+      <li class="todoItem">Expedita asperiores nam saepe voluptatem, nostrum aliquid debitis quam recusandae.</li>
+      <li class="todoItem">Quaerat velit deserunt reprehenderit, vel placeat impedit accusamus non, deleniti!</li>
+    </ul>
+  </div>
+
+  <h2>Completed Todos</h2>
+  <ul class="completedTodoWrapper">
+    <div class="completed"></div>
+  </ul>
+</body>
+
+<script>
+      const todos = document.querySelectorAll('.todoItem');
+  const completedTodos = document.querySelector('.completed');
+  const completedTodoWrapper = document.querySelector('.completedTodoWrapper');
+
+  todos.forEach(todo => todo.addEventListener('click', (event) => {
+    let completedTodo = document.createElement('li');
+    let todoContent = document.createTextNode(todo.textContent);
+    completedTodo.appendChild(todoContent);
+    completedTodoWrapper.insertBefore(completedTodo, completedTodos);
+    todo.remove();
+  }))
+</script>
+
+</html>
+
+<!-- document.querySelector(): returns the first element within the document.
+use querySelectorAll(): to return all matches.
+
+document: the Documnent interface represents any webpae loaded in the browser and serves as 
+an entry point into the web page's content, which is in the DOM tree.
+
+DOM tree: According to the Document Object Model (DOM), every HTML tag is an object. 
+Nested tags are "children" of the enclosing one. The text inside a tag is an object as well
+
+.createElement(): this method creates an element node with the specified name. After the element is created, use the element
+.appendChild() or element.insertBefore() method to insert the document.
+
